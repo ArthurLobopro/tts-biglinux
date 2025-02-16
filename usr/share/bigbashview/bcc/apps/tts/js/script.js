@@ -91,3 +91,4 @@ $(function () {
 
 
 import "./changeControllers.js"
+import "./translation.js"
