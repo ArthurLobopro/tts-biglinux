@@ -45,24 +45,13 @@ if [ "$VOICE" = "" ]; then
 fi
 
 
-# Import BigControlCenter base modules / Importa os módulos básicos do BigControlCenter
-# That's include jquery and materialize / Isso inclui o jquery e o materialize
-# http://materializecss.com/
-. /usr/share/bigbashview/bcc/shell/base.sh
-
 cat << EOF
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-
-EOF
- 
-    echo '<title>' $"Voice Configuration" '</title>'
-
-cat << EOF
-
+  <title data-i18n="Configurar voz"></title>
   <link rel="stylesheet" href="./style.css">
   <script src="/usr/share/bigbashview/bcc/materialize/js/jquery.js"></script>
   <script src="/usr/share/bigbashview/bcc/js/big.js"></script>
@@ -95,12 +84,7 @@ cat << EOF
       <div class="user">
         <div class="form-wrap"> 
           <div class="form-wrap tabs-content">
-          
-EOF
-  echo '<h2>'
-  echo $"Configurar voz"
-  echo '</h2>'
-cat << EOF   
+            <h2 data-i18n="Configurar voz"></h2>
           
           </div>
           <!-- TABS CONTENT -->
@@ -109,18 +93,12 @@ cat << EOF
             <div id="list-tab-content" class="fc-card active">
 
               <div class="centretext" style="margin-bottom: 30px;">
-                <div id="desc"><h5>
-EOF
-
-  echo $"Para falar um texto selecionado use o atalho "
-  echo '<span style="color: var(--text-neon-color);">'
-  echo $"[Alt] + [V]"
-  echo '</span>'  
-  echo $"ou o ícone na sessão Utilitários no menu do sistema. Para interromper a leitura use novamente o atalho ou ícone."
-
-cat << EOF
-
-</h5>
+                <div id="desc">
+                  <h5>
+                    <span data-i18n="Para falar um texto selecionado use o atalho "></span>
+                    <span style="color: var(--text-neon-color);" data-i18n="[Alt] + [V]"></span>
+                    <span data-i18n="ou o ícone na sessão Utilitários no menu do sistema. Para interromper a leitura use novamente o atalho ou ícone."></span>
+                  </h5>
                 </div>
               </div>
               <form name=noise action=make.sh.htm>
@@ -131,13 +109,7 @@ cat << EOF
 
                   <div class="biglinux-dashboard">
                     <div class="biglinux-center-panel">
-
-EOF
-  echo '<h4>'
-  echo $"Selecione as configurações de sua preferência"
-  echo '</h4>'
-cat << EOF                    
-                    
+                      <h4 data-i18n="Selecione as configurações de sua preferência"></h4>                    
                       <form action="run.sh.htm" method="get">
                       <div class="biglinux-card">
                         <ul>
