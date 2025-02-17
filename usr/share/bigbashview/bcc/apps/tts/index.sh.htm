@@ -106,7 +106,6 @@ cat << EOF
                 <div style="text-align: center; margin: auto; padding: auto;">
                   <div class="content-section-title" style="text-align: center;"></div>
 
-
                   <div class="biglinux-dashboard">
                     <div class="biglinux-center-panel">
                       <h4 data-i18n="Selecione as configurações de sua preferência"></h4>                    
@@ -114,26 +113,27 @@ cat << EOF
                       <div class="biglinux-card">
                         <ul>
                           <li> 
-  
+                            <span data-i18n="Velocidade"></span>
+                            <div> 
+                              <input type="range" min="-100" max="100" step="5" value="$RATE" id="rate-range">
+                              <input type="number" min="-100" max="100" step="5" maxlength="3" value="$RATE" id="rate" readonly>
+                            </div>
+                          </li>
 EOF
   
-
 #################
 # Speed
 #################
 tooltiprate=$"Números maiores deixam a voz mais rápida, o padrão é: -25"
 
-echo "" $"Velocidade" ""
-echo '<div> 
-        <input type="range" min="-100" max="100" step="5" value="'$RATE'" id="rate-range">
-        <input type="number" min="-100" max="100" step="5" maxlength="3" value="'$RATE'" id="rate" readonly>
-      </div>'
-
 cat << EOF
-
-</li>
 <li>
-
+  <span data-i18n="Tom"></span>
+  <div> 
+    <input type="range" min="-100" max="100" step="5" value="$PITCH" id="pitch-range">
+    <input type="number" min="-100" max="100" step="5" maxlength="3" value="$PITCH" id="pitch" readonly>
+  </div>
+</li>
 EOF
 
 #################
@@ -141,17 +141,14 @@ EOF
 #################
 tooltipitch=$"Números maiores deixam a voz mais aguda, o padrão é: -25"
 
-echo "" $"Tom" ""
-echo '<div> 
-        <input type="range" min="-100" max="100" step="5" value="'$PITCH'" id="pitch-range">
-        <input type="number" min="-100" max="100" step="5" maxlength="3" value="'$PITCH'" id="pitch" readonly>
-      </div>'
-
 cat << EOF
-
-</li>
 <li>
-
+  <span data-i18n="Volume"></span>
+  <div> 
+    <input type="range" min="-100" max="100" step="5" value="$VOLUME" id="volume-range">
+    <input type="number" min="-100" max="100" step="5" maxlength="3" value="$VOLUME" id="volume" readonly>
+  </div>
+</li>
 EOF
 
 #################
@@ -159,28 +156,17 @@ EOF
 #################
 tooltipvolume=$"O padrão é: 0."
 
-
-echo "" $"Volume" ""
-echo '<div> 
-        <input type="range" min="-100" max="100" step="5" value="'$VOLUME'" id="volume-range">
-        <input type="number" min="-100" max="100" step="5" maxlength="3" value="'$VOLUME'" id="volume" readonly>
-      </div>'
-
 cat << EOF
-
-</li>
 <li>
-
+  <span data-i18n="Voz"></span>
+  <label for="s0" style="margin:0px; padding:0px; width: 100%; text-align:right;"> </label>
+  <select class="browser-default" id="VOICE" name="VOICE">
 EOF
 
 #################
 # Voice
 #################
 tooltipvoice=$"As vozes são otimizadas para idiomas expecíficos."
-
-echo "" $"Voz" ""
-echo "<label for=\"s0\" style=\"margin:0px; padding:0px; width: 100%; text-align:right;\"> </label>"
-echo "<select class=browser-default id=VOICE name=VOICE>"
 
 OIFS=$IFS
 IFS=$'\n'
@@ -198,21 +184,16 @@ LANG_ITEM="$(echo "$i" | awk  '{print $2}')"
 
 done
 
-echo '</select>'
-
-
 cat << EOF
-
-</li>                          
+                            </select>
+                          </li>                          
                         </ul>                          
                       </div>
-                      
                     </div>
                   </div>
                   <br style="clear: left;" />
                 </div>
               </div>
-
 
               <div id="desc">   
                   <div style="text-align: center; display:inline-block;" id=theme2-2 class="tooltipped with-gap" data-position="top" data-delay="250" data-tooltip="$tooltipinstall">
@@ -227,7 +208,6 @@ cat << EOF
     </div>
   </div>
 </div>
-
 EOF
 
 cat << EOF   
