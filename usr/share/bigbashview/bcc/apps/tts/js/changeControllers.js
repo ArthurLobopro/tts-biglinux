@@ -34,7 +34,7 @@ volumeRangeInput.addEventListener("change", () => {
     API.setVolume(volumeRangeInput.value)
 })
 
-pitchRangeInput.addEventListener("change", () => {
+pitchRangeInput.addEventListener("input", () => {
     if (shouldChange(pitchInput, pitchRangeInput)) {
         pitchInput.value = pitchRangeInput.value
     }
@@ -44,7 +44,7 @@ pitchRangeInput.addEventListener("change", () => {
     API.setPitch(pitchRangeInput.value)
 })
 
-rateRangeInput.addEventListener("change", () => {
+rateRangeInput.addEventListener("input", () => {
     if (shouldChange(rateInput, rateRangeInput)) {
         rateInput.value = rateRangeInput.value
     }
